@@ -1,0 +1,159 @@
+@media screen and (max-width: 768px) {
+  /* 화면 너비가 768px 미만인 경우에 적용되는 스타일 */
+  h1 {
+    font-size: 17px;
+    padding: 10px;
+  }
+  p {
+    font-size: 10px;
+    color: white;
+    margin-top: 20px;
+  }
+  .klayswap-CreatePool h1 {
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    line-height: 1.2;
+  }
+  .Contact h1 {
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    line-height: 1.2;
+  }
+  .form-check-label {
+    font-size: 12px;
+  }
+  .btn-group {
+    margin-top: 20px;
+    flex-direction: column;
+    align-content: center;
+  }
+  .btn-group1 {
+    margin-top: 5px;
+    margin-left: 40%;
+    margin-bottom: 100px;
+  }
+  .btn-group2 {
+    margin-top: 5px;
+    margin-left: 40%;
+    margin-bottom: 100px;
+  }
+  .btn-group3 {
+    margin-top: 5px;
+    margin-left: 40%;
+    margin-bottom: 100px;
+  }
+  .input-group {
+    margin-left: 15%;
+    margin-top: 30px;
+    width: 250px;
+  }
+  .input-group2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 45%;
+    width: 40%;
+  }
+  .signUp p {
+    color: #f40404;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    margin-left: 40%;
+    width: 100%;
+    font-size: 8px;
+    text-align: left;
+    font-weight: bold;
+  }
+  .voteLine h3 {
+    font-size: 12px;
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* 화면 너비가 480px 미만인 경우에 적용되는 스타일 */
+  h1 {
+    font-size: 12px;
+    padding: 5px;
+  }
+  p {
+    font-size: 8px;
+    color: white;
+    margin-top: 20px;
+  }
+  .klayswap-CreatePool h1 {
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    line-height: 1.2;
+  }
+  .Contact h1 {
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    line-height: 1.2;
+  }
+  .form-check-label {
+    font-size: 10px;
+  }
+  .btn-group {
+    margin-top: 20px;
+    flex-direction: column;
+    align-content: center;
+  }
+  .btn-group1 {
+    margin-top: 10px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+  }
+  .btn-group2 {
+    margin-top: 10px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+  }
+  .btn-group3 {
+    margin-top: 10px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+  }
+  .input-group {
+    margin-left: 15%;
+    margin-top: 30px;
+    width: 250px;
+  }
+  .input-group2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 45%;
+    width: 40%;
+  }
+  .signUp p {
+    color: #f40404;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    margin-left: 40%;
+    width: 100%;
+    font-size: 8px;
+    text-align: left;
+    font-weight: bold;
+  }
+  .voteLine h3 {
+    font-size: 12px;
+    margin-left: 10%;
+  }
+}

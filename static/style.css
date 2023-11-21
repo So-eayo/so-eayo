@@ -1,0 +1,162 @@
+/* body Start Page CSS */
+
+.start-page {
+  position: relative;
+  text-align: center;
+}
+.start-image {
+  display: block;
+  margin: 0 auto; /* 이미지를 수평 가운데 정렬 */
+  background-image: url("../static/background/start-page.jpg"); /* 이미지 파일 경로를 지정하세요 */
+  background-size: cover; /* 이미지를 컨테이너에 맞게 확대/축소합니다. */
+  background-position: center; /* 이미지를 가운데로 정렬합니다. */
+  background-repeat: no-repeat; /* 이미지를 반복하지 않도록 설정합니다. */
+  width: 100%; /* 가로 폭을 100%로 설정하여 반응형으로 만듭니다. */
+  padding-top: 56.25%; /* 가로 대비 세로 비율을 설정합니다 (예: 16:9 비율인 경우). */
+}
+.start-text {
+  position: absolute;
+  top: 50%; /* 컨테이너의 상단에서 50% 떨어진 위치로 설정 */
+  left: 50%; /* 컨테이너의 왼쪽에서 50% 떨어진 위치로 설정 */
+  transform: translate(-50%, -50%); /* 텍스트를 수직 및 수평으로 가운데 정렬 */
+  color: white(21, 20, 20); /* 텍스트 색상 설정 */
+  background: rgba(0, 0, 0, 0); /* 배경 색상 설정 (투명 검정) */
+  padding: 10px 20px; /* 텍스트 주변에 여백 추가 */
+}
+
+h1 {
+  font-size: 42px;
+  color: white;
+  font-weight: bold;
+  /* text-transform:uppercase; */
+  line-height: 1.2;
+}
+
+p {
+  font-size: 19px;
+  color: white;
+  margin-top: 30px;
+  line-height: 1.2;
+}
+
+h1 span {
+  color: #2fa68e;
+}
+
+/* 메뉴항목 */
+
+.container-fluid .navbar-brand {
+  margin-right: 100px;
+}
+.navbar-nav .nav-link {
+  margin-right: 100px; /* 원하는 간격 크기로 조정 */
+}
+
+/* CreatePool 항목 */
+.klayswap-CreatePool {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.klayswap-CreatePool h1 {
+  font-size: 42px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  /* text-transform: uppercase; */
+  line-height: 1.2;
+}
+.klayswap-CreatePool p.title {
+  color: #919191;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+}
+.klayswap-CreatePool p.title2 {
+  color: #919191;
+  margin-top: 100px;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+}
+
+.btn-group {
+  margin-top: 20px;
+  flex-direction: row;
+}
+.btn-group1 {
+  margin-top: 50px;
+  margin-left: 20%;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+.btn-group2 {
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+.btn-group3 {
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+.Contact h1 {
+  font-size: 42px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  /* text-transform: uppercase; */
+  line-height: 1.2;
+}
+
+.Contact p {
+  color: #030303;
+  font-weight: bold;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 15px;
+  text-align: left;
+}
+.form-check.form-switch {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.form-check-label {
+  font-size: 20px;
+}
+.voteLine {
+  margin-left: 20px;
+}
+.input-group {
+  margin-top: 20px;
+  margin-left: 80px;
+  width: 50%;
+}
+.input-group2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 45%;
+  width: 40%;
+}
+.signUp p {
+  color: #f40404;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 200px;
+  margin-left: 40%;
+  width: 100%;
+  font-size: 15px;
+  text-align: left;
+  font-weight: bold;
+}
+.voteLine h3 {
+  margin-left: 20%;
+}

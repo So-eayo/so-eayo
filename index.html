@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 부트스트랩 사용하기 위한 link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/style-responsive.css"
+    />
+    <!-- ajax 사용하기 위한 script -->
+    <script src="https://cdn.jsdelivr.net/npm/caver-js/dist/caver.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/8.0.2/bignumber.min.js"></script>
+    <title>Klaytn Crowds Funding Protocol</title>
+    <!-- ethers script -->
+
+    <script type="module">
+      import {
+        ethers,
+        JsonRpcProvider,
+      } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.min.js";
+      const provider = new JsonRpcProvider(
+        "https://public-en-cypress.klaytn.net"
+      );
+      const ocontract = new ethers.Contract(caAddress, contractABI, provider);
+      async function donationUser() {
+        const result = await ocontract.donationUserNum();
+        return result;
+      }
+      // async function amountVKSP() {
+      //   const num = await contract.donationUserNum();
+      //   let sum = 0;
+      //   for (let i = 0; i < Number(num); i++) {
+      //     const result = await contract.donationUserArray(i);
+      //     let amount = await contract.serchBalance(result);
+      //     sum += Number(amount) / 10 ** 18;
+      //   }
+      //   return sum.toFixed(0);
+      // }
+      const walletLength = document.getElementById("walletLength");
+      walletLength.innerHTML = `<p>Join Wallet : ${await donationUser()} Wallet</p>`;
+      // const vkspAmount = document.getElementById("vkspAmount");
+      // vkspAmount.innerHTML = `<p>Join vKSP Holder Amount : ${await amountVKSP()}vKSP</p>`;
+    </script>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+    <script></script>
+
+    <!-- Main Banner 화면 -->
+    <div class="start-page">
+      <img class="start-image" />
+      <h1 class="start-text">
+        Welcome to Klaytn Dao<br />
+        Crowds Funding <span>Protocol</span>
+        <p id="walletLength"></p>
+        <p id="vkspAmount"></p>
+        <p>Total Crowds Funding : $ ()</p>
+        <div id="user_address">
+          <a
+            href="#"
+            class="btn btn-primary active"
+            role="button"
+            data-bs-toggle="button"
+            aria-pressed="true"
+            onclick="walletConnect()"
+            >지갑 연결</a
+          >
+        </div>
+        <p id="user_address"></p>
+      </h1>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 메뉴 항목  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Klaytn Dao</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Klayswap Create Pool</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="aa()">Klayswap Agenda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CreatePool 항목 -->
+
+    <section class="klayswap-CreatePool">
+      <h1>Klayswap Create Pool</h1>
+      <hr />
+      <p class="title">
+        Klayswap V3 LP tokenA, tokenB를 확인하고 <br />
+        Funding을 시작하세요!
+      </p>
+      <section>
+        <div class="voteLine" id="makePool_list"></div>
+      </section>
+    </section>
+
+    <script></script>
+    <div class="input-group">
+      <div class="input-group mb-3">
+        <input
+          id="donationAmount"
+          type="text"
+          class="form-control"
+          placeholder="Donation KSP"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <div id="change_donation">
+          <button
+            onclick="donationcheck()"
+            class="btn btn-outline-primary active"
+            type="button"
+            id="button-addon2"
+          >
+            참여하기
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <p class="title2">Klayswap V3 LP tokenA, tokenB를 제안하기</p>
+    <hr />
+
+    <div
+      class="btn-group"
+      role="group"
+      aria-label="Button group with nested dropdown"
+    >
+      <div class="btn-group1" role="group">
+        <button
+          onclick="tokenA()"
+          id="btnGroupDrop1"
+          type="button"
+          class="btn btn-secondary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          TokenA를 선택하세요
+        </button>
+        <ul
+          id="tokenA_dropbutton"
+          class="dropdown-menu"
+          aria-labelledby="btnGroupDrop1"
+          style="max-height: 200px; overflow-y: auto"
+        ></ul>
+      </div>
+      <div class="btn-group2" role="group">
+        <button
+          onclick="tokenB()"
+          id="btnGroupDrop2"
+          type="button"
+          class="btn btn-secondary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          TokenB를 선택하세요
+        </button>
+        <ul
+          id="tokenB_dropbutton"
+          class="dropdown-menu"
+          aria-labelledby="btnGroupDrop2"
+          style="max-height: 200px; overflow-y: auto"
+        ></ul>
+      </div>
+
+      <div class="btn-group3" role="group">
+        <button
+          onclick="fee()"
+          id="btnGroupDrop3"
+          type="button"
+          class="btn btn-secondary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          수수료를 선택하세요
+        </button>
+        <ul
+          id="fee_dropbutton"
+          class="dropdown-menu"
+          aria-labelledby="btnGroupDrop3"
+          style="max-height: 200px; overflow-y: auto"
+        >
+          <li>
+            <a class="dropdown-item" onclick="feeText('0.01%')" id="fee100"
+              >0.01%</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" onclick="feeText('0.05%')" id="fee500"
+              >0.05%</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" onclick="feeText('0.1%')" id="fee1000"
+              >0.1%</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" onclick="feeText('0.2%')" id="fee2000"
+              >0.2%</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" onclick="feeText('1%')" id="fee10000"
+              >1%</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="input-group2">
+      <style>
+        .custom-confirm {
+          width: 500px; /* 원하는 너비로 조절하세요 */
+          font-size: 12px;
+        }
+        .red-text {
+          color: red;
+        }
+        @media screen and (max-width: 480px) {
+          .custom-confirm {
+            width: 300px; /* 원하는 너비로 조절하세요 */
+            font-size: 10px;
+            margin-top: 300px;
+          }
+          .red-text {
+            color: red;
+          }
+          .swal2-container {
+            grid-template-rows: max-content;
+            margin-right: 130px;
+            margin-top: 50px;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          .custom-confirm {
+            width: 300px; /* 원하는 너비로 조절하세요 */
+            font-size: 10px;
+            margin-top: 300px;
+          }
+          .red-text {
+            color: red;
+          }
+          .swal2-container {
+            grid-template-rows: max-content;
+            margin-right: 130px;
+            margin-top: 50px;
+          }
+        }
+
+        .swal2-container.swal2-center > .swal2-popup {
+          background-color: #ffffff;
+          border-radius: 0.5em;
+          width: 300px;
+        }
+        .swal-actions-vertical {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+        .swal2-actions {
+          margin: auto;
+        }
+
+        .swal2-styled.swal2-confirm {
+          width: 75%;
+          height: 35%;
+          margin-top: 20px;
+          order: 0;
+          border-radius: 0.5em;
+          background-color: #3366ff;
+          color: #ffffff;
+          font-size: 0.8em;
+        }
+        .swal2-styled.swal2-cancel {
+          width: 75%;
+          height: 35%;
+          margin-top: 20px;
+          order: 0;
+          border-radius: 0.5em;
+          background-color: #474849;
+          color: #ffffff;
+          font-size: 0.8em;
+        }
+        .swal2-title {
+          position: relative;
+          max-width: 100%;
+          margin: 0;
+          padding: 0.8em 1em 0;
+          color: #525252;
+          font-size: 1em;
+          font-weight: 600;
+          text-align: center;
+          text-transform: none;
+          word-wrap: break-word;
+        }
+        .swal2-styled.swal2-confirm:focus {
+          box-shadow: none;
+        }
+        .kaikas-image {
+          width: 18px;
+        }
+      </style>
+      <div id="change_make">
+        <button
+          class="btn btn-outline-danger active"
+          type="button"
+          id="button-addon2"
+          onclick="create_approve(1,'make')"
+        >
+          등록하기
+        </button>
+      </div>
+    </div>
+    <div class="signUp">
+      <p>등록하기 위해서는 1KSP가 필요합니다</p>
+    </div>
+
+    <section class="Contact">
+      <div>
+        <h1>Contact</h1>
+        <hr />
+        <p>
+          Open KaKao Talk vKSP Community<br />
+          Soeayo<br />
+          Scope : www.~~~<br />
+          Git : www.~<br />
+        </p>
+      </div>
+    </section>
+    <script type="text/javascript" src="../static/ajax.js"></script>
+    <script type="text/javascript" src="../static/script.js"></script>
+    <script type="text/javascript" src="../static/abi.js"></script>
+    <script type="text/javascript" src="../static/kaikas.js"></script>
+  </body>
+</html>
