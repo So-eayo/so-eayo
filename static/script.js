@@ -5,7 +5,7 @@ let tokenB_symbol = "";
 let fee_get = "";
 let pool_info;
 const kspAddress = "0xC6a2Ad8cC6e4A7E08FC37cC5954be07d499E7654";
-const caAddress = "0x092a9ab31A9d04c9627F7C745a16Eda2fBA8195a";
+const caAddress = "0xBBc6EC1385B35156fd893D54C022fF88d3888148";
 async function display_pool(data) {
   const caver = new Caver("https://public-en-cypress.klaytn.net");
   const contract = new caver.klay.Contract(contractABI, caAddress);
