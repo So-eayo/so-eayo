@@ -13,7 +13,11 @@ const klip_prepare = {
     }),
   }).then((response) => response.json()),
 };
-
+const klip_getResult = (requestKey) => {
+  return fetch(`https://api.kaikas.io/api/v1/k/result/${requestKey}`, {
+    method: "GET",
+  }).then((res) => res.json());
+};
 async function connet_klip() {
   var ua = util.userAgent();
   console.log("진입");
@@ -30,6 +34,14 @@ async function connet_klip() {
       window.location.href =
         "kakaotalk://klipwallet/open?url=https://klipwallet.com/?target=/a2a?request_key=" +
         auth_connect.request_key;
+      klip_address_get();
     }
+  }
+}
+
+async function klip_address_get() {
+  if (request_key) {
+    const address_info = await klip_getResult(request_key);
+    console.log(address_info);
   }
 }
