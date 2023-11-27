@@ -72,7 +72,6 @@ async function resultRequest(
   tokenB_address,
   fee_rate
 ) {
-  console.log("getResult까지 진입");
   const result_info = await kaikas_getResult(request_key);
   if (result_info.err) {
   } else if (result_info) {
@@ -81,7 +80,6 @@ async function resultRequest(
         resultRequest(request_key, tokenA_address, tokenB_address, fee_rate);
       }, 3000);
     } else {
-      console.log("진입");
       requstPost(tokenA_address, tokenB_address, fee_rate);
     }
   }
@@ -96,8 +94,6 @@ function window_kaikas(response) {
 }
 
 function kaikas_approve(num, type) {
-  console.log("kaikas approve 진입");
-  console.log(num, type);
   if (typeof window.klaytn !== "undefined") {
     if (type == "make") {
       const print_loading = document.getElementById("change_make");
@@ -191,7 +187,6 @@ async function window_approve(num, type) {
 }
 
 async function mobile_approve(num, type) {
-  console.log("mobile_approve 진입");
   const value = new BigNumber(num * 10 ** 18).toNumber();
   const abi = {
     constant: false,

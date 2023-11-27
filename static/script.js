@@ -4,6 +4,7 @@ let tokenA_symbol = "";
 let tokenB_symbol = "";
 let fee_get = "";
 let pool_info;
+let wallet = "";
 const kspAddress = "0xC6a2Ad8cC6e4A7E08FC37cC5954be07d499E7654";
 const caAddress = "0xBBc6EC1385B35156fd893D54C022fF88d3888148";
 async function display_pool(data) {
@@ -24,7 +25,6 @@ async function display_pool(data) {
       let result = await contract.methods
         .balance(tokenA_address, tokenB_address, fee)
         .call();
-      console.log(result);
       if (result / 10 ** 18 <= 100) {
         makePool_html =
           '<div class="form-check form-switch"><input class = "form-check-input" type="radio" id="flexSwitchCheckChecked' +
@@ -57,7 +57,6 @@ async function display_pool(data) {
 }
 
 function donationcheck() {
-  console.log("donationcheck 진입");
   let donationAmount = $("#donationAmount").val();
   let check_number = parseInt(donationAmount);
   if (user_address == undefined) {
@@ -115,12 +114,13 @@ const kaikas_getResult = (requestKey) => {
 
 async function walletConnect() {
   const kaikasPNG = "../static/logos/kaikaswhite.png";
+  const klipPNG = "../static/logos/kakaoklip.png";
   Swal.fire({
     title: "지갑을 선택하세요",
     showConfirmButton: true,
-    showCancelButton: false,
+    showCancelButton: true,
     confirmButtonText: `<img class="kaikas-image" src="${kaikasPNG}" alt="" /> Connect to Kaikas`,
-    cancelButtonText: "Reject",
+    cancelButtonText: `<img class="kaikas-image" src="${klipPNG}" alt="" /> Connect with Klip Account`,
     showDenyButton: false,
     denyButtonText: "Ignore",
     customClass: {
@@ -128,14 +128,16 @@ async function walletConnect() {
     },
   }).then((result) => {
     if (result.isConfirmed) {
+      wallet = "kaikas";
       connet_kaikas();
-      // } else if (result.isDenied) {
-      //   console.log("Ignore button clicked");
-      // } else if (result.dismiss === Swal.DismissReason.cancel) {
-      //   console.log("Reject button clicked");
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      wallet = "klip";
+      connet_klip();
       // } else if (result.dismiss === Swal.DismissReason.close) {
       //   console.log("Close button clicked");
       // }
+      // } else if (result.isDenied) {
+      //   console.log("Ignore button clicked");
     }
   });
 }

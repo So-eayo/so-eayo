@@ -28,7 +28,6 @@ function show_makePool() {
 //  -> Pool , Donation 수량 , "참여하기"버튼을 누르면 해당 정보를 백엔드쪽에 전달하는 함수
 
 function donationInfo() {
-  console.log("donationInfo진입");
   let donationAmount = $("#donationAmount").val();
   let check_number = parseInt(donationAmount);
   if (user_address == undefined) {
@@ -203,7 +202,6 @@ function fee() {
   }
 }
 function create_approve(num, type) {
-  console.log("create_approve 진입");
   if (user_address) {
     Swal.fire({
       title:
@@ -254,7 +252,6 @@ function create_confirm() {
             user_address_give: user_address,
           },
           success: function (response) {
-            console.log("window_kaikas까지 진입");
             window_kaikas(response);
           },
         });
@@ -269,7 +266,6 @@ function create_confirm() {
 }
 
 function requstPost(tokenA, tokenB, fee) {
-  console.log("requestPost진입");
   if (tokenA != undefined) {
     $.ajax({
       type: "POST",
@@ -280,7 +276,6 @@ function requstPost(tokenA, tokenB, fee) {
         fee_give: fee,
       },
       success: function (response) {
-        console.log(response);
         if (response["msg"]) {
           const tokenA = response["msg"].tokenA;
           const tokenB = response["msg"].tokenB;
