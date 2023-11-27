@@ -14,9 +14,12 @@ const klip_prepare = {
   }).then((response) => response.json()),
 };
 const klip_getResult = (requestKey) => {
-  return fetch(`https://api.kaikas.io/api/v1/k/result/${requestKey}`, {
-    method: "GET",
-  }).then((res) => res.json());
+  return fetch(
+    `https://a2a-api.klipwallet.com/v2/a2a/result?request_key=${requestKey}`,
+    {
+      method: "GET",
+    }
+  ).then((res) => res.json());
 };
 async function connet_klip() {
   var ua = util.userAgent();
@@ -38,7 +41,6 @@ async function connet_klip() {
     }
   }
 }
-
 async function klip_address_get() {
   console.log("klip_address_get 진입");
   if (request_key) {
