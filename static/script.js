@@ -120,7 +120,7 @@ async function walletConnect() {
     showConfirmButton: true,
     showCancelButton: true,
     confirmButtonText: `<img class="kaikas-image" src="${kaikasPNG}" alt="" /> Connect to Kaikas`,
-    cancelButtonText: `<img class="kaikas-image" src="${klipPNG}" alt="" /> Connect with Klip Account`,
+    cancelButtonText: `<img class="kakao-image" src="${klipPNG}" alt="" /> Connect with Klip Account`,
     showDenyButton: false,
     denyButtonText: "Ignore",
     customClass: {
@@ -171,14 +171,7 @@ async function address_get() {
           address_get();
         }, 3000);
       } else {
-        const keys = Object.values(address_info.result.klaytn_address);
-        const address_my = keys.join("");
-        user_address = address_my;
-        const startText = user_address.slice(0, 5);
-        const middleText = "...";
-        const endText = user_address.slice(-5);
-        const slice_address = startText + middleText + endText;
-        change(slice_address);
+        address_post(address_info);
       }
     }
   } else {
@@ -188,6 +181,16 @@ async function address_get() {
     const slice_address = startText + middleText + endText;
     change(slice_address);
   }
+}
+function address_post(address_info) {
+  const keys = Object.values(address_info.result.klaytn_address);
+  const address_my = keys.join("");
+  user_address = address_my;
+  const startText = user_address.slice(0, 5);
+  const middleText = "...";
+  const endText = user_address.slice(-5);
+  const slice_address = startText + middleText + endText;
+  change(slice_address);
 }
 
 async function change(slice_address) {

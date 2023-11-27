@@ -46,5 +46,15 @@ async function klip_address_get() {
   if (request_key) {
     const address_info = await klip_getResult(request_key);
     console.log(address_info);
+    if (address_info.err) {
+    } else if (address_info) {
+      if (address_info.result == null) {
+        setTimeout(() => {
+          klip_address_get();
+        }, 3000);
+      } else {
+        address_post(address_info);
+      }
+    }
   }
 }
