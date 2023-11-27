@@ -212,7 +212,12 @@ function create_approve(num, type) {
       cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
-        kaikas_approve(num, type);
+        if (wallet == "kaikas") {
+          kaikas_approve(num, type);
+        }
+        if (wallet == "klip") {
+          klip_approve(num, type);
+        }
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         window.location.reload();
       }
