@@ -20,7 +20,7 @@ const klip_getResult = (requestKey) => {
 };
 async function connet_klip() {
   var ua = util.userAgent();
-  console.log("진입");
+  console.log("connet_clip 진입");
   if (ua.platform == "pc") {
     alert(
       `모바일 기기에서 이용가능한 지갑입니다. \r 클립이 설치된 스마트폰에서 이용해주세요`
@@ -40,6 +40,7 @@ async function connet_klip() {
 }
 
 async function klip_address_get() {
+  console.log("klip_address_get 진입");
   if (request_key) {
     const address_info = await klip_getResult(request_key);
     console.log(address_info);
